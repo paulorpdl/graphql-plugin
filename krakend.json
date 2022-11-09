@@ -1,0 +1,28 @@
+{
+  "version": 3,
+  "plugin": {
+    "pattern": ".so",
+    "folder": "./plugins/"
+  },
+  "endpoints": [
+    {
+      "endpoint": "/graphql",
+      "backend": [
+        {
+          "host": [
+            "http://localhost:8080"
+          ],
+          "url_pattern": "/__health"
+        }
+      ]
+    }
+  ],
+  "extra_config": {
+    "plugin/http-server": {
+      "name": ["graphql-plugin"],
+      "graphql-plugin": {
+        "path": "/graphql"
+      }
+    }
+  }
+}
